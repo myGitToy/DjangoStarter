@@ -3,8 +3,6 @@ from apps.demo.models import *
 
 
 class MusicAlbumIn(ModelSchema):
-    
-
     class Meta:
         model = MusicAlbum
         fields = ['name', 'year', ]
@@ -13,4 +11,4 @@ class MusicAlbumIn(ModelSchema):
 class MusicAlbumOut(ModelSchema):
     class Meta:
         model = MusicAlbum
-        fields = ['id', 'name', 'year', ]
+        fields = ['id', 'is_deleted', 'created_time', 'updated_time', 'name', 'year', ]

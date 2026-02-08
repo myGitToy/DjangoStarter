@@ -3,18 +3,15 @@ from django.contrib.auth.models import User, Group
 from ninja import ModelSchema
 from ninja.schema import Schema
 
+from django_starter.contrib.auth.schemas import LoginToken
+
 
 class LoginSchema(Schema):
     username: str
     password: str
 
-
-class LoginToken(Schema):
-    token: str
-    exp: int
-
-
 class RegisterSchema(Schema):
+    email: str
     username: str
     password: str
     confirm_password: str
@@ -24,17 +21,17 @@ class RegisterSchema(Schema):
 
 
 class GroupSchema(ModelSchema):
-    class Config:
+    class Meta:
         model = Group
-        model_fields = ['name']
+        fields = ['name']
 
 
 class UserSchema(ModelSchema):
     groups: List[str]
 
-    class Config:
+    class Meta:
         model = User
-        model_fields = ['id', 'username', 'first_name', 'last_name', 'groups']
+        fields = ['id', 'username', 'first_name', 'last_name', 'groups']
 
     @staticmethod
     def resolve_groups(obj: User):

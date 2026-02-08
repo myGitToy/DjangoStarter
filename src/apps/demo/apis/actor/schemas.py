@@ -3,8 +3,6 @@ from apps.demo.models import *
 
 
 class ActorIn(ModelSchema):
-    
-
     class Meta:
         model = Actor
         fields = ['name', 'birth_date', 'country', 'city', ]
@@ -13,4 +11,4 @@ class ActorIn(ModelSchema):
 class ActorOut(ModelSchema):
     class Meta:
         model = Actor
-        fields = ['id', 'name', 'birth_date', 'country', 'city', ]
+        fields = ['id', 'is_deleted', 'created_time', 'updated_time', 'name', 'birth_date', 'country', 'city', ]

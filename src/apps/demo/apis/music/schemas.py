@@ -13,4 +13,4 @@ class MusicIn(ModelSchema):
 class MusicOut(ModelSchema):
     class Meta:
         model = Music
-        fields = ['id', 'name', 'singer', 'genre', 'rating', 'album', ]
+        fields = ['id', 'is_deleted', 'created_time', 'updated_time', 'name', 'singer', 'genre', 'rating', 'album', ]
